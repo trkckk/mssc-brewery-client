@@ -54,9 +54,9 @@ class BreweryClientTest {
     }
     @Test
     void saveNewCustomer() {
-        CustomerDto cusotmerDto = CustomerDto.builder().beerName("New Customer").build();
+        CustomerDto cusotmerDto = CustomerDto.builder().name("New Customer").build();
 
-        URI uri = client.saveNewBeer(cusotmerDto);
+        URI uri = client.saveNewCustomer(cusotmerDto);
 
         assertNotNull(uri);
         System.out.println(uri.toString());
