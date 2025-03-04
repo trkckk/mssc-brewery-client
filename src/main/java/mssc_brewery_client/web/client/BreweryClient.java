@@ -15,6 +15,7 @@ import java.util.UUID;
 public class BreweryClient {
 
     public final String BEER_PATH_V1 = "/api/v1/beer/";
+    public final String CUSTOMER_PATH_V1 = "/api/v1/customer/";
     private String apihost;
     private final RestTemplate restTemplate;
 
@@ -38,18 +39,18 @@ public class BreweryClient {
     }
 
     public CustomerDto getCustomerById(UUID uuid) {
-        return restTemplate.getForObject(apihost + BEER_PATH_V1 + "/" + uuid, CustomerDto.class);
+        return restTemplate.getForObject(apihost + CUSTOMER_PATH_V1 + "/" + uuid, CustomerDto.class);
     }
 
     public URI saveNewCustomer(CustomerDto customerDto) {
-        return restTemplate.postForObject(apihost + BEER_PATH_V1, customerDto, URI.class);
+        return restTemplate.postForObject(apihost + CUSTOMER_PATH_V1, customerDto, URI.class);
     }
     public void updateCustomer(UUID uuid, CustomerDto customerDto) {
-        restTemplate.put(apihost + BEER_PATH_V1, customerDto);
+        restTemplate.put(apihost + CUSTOMER_PATH_V1, customerDto);
     }
 
     public void deleteCustomer(UUID uuid) {
-        restTemplate.delete(apihost + BEER_PATH_V1);
+        restTemplate.delete(apihost + CUSTOMER_PATH_V1);
     }
 
     public void setApihost(String apihost) {
